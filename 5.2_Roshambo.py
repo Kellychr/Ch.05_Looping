@@ -11,8 +11,48 @@ Each round tell me what the computer chose, what I chose and also if I won, lost
 When the user quits print an end game message and their win/loss/tie record
 
 '''
+import random
+
+done=False
+win=0
+tie=0
+lose=0
+times=0
+
+t = ["Rock", "Paper", "Scissors"]
 
 
+computer = t[random.randint(0,2)]
+
+#set player to False
+player = False
+
+while player == False:
+    player = input("Rock, Paper, Scissors?")
+    if player == computer:
+        print("Tie!")
+        tie+=1
+    elif player == "Rock":
+        if computer == "Paper":
+            print("You lose!", computer, "covers", player)
+            lose+=1
+        else:
+            print("You win!", player, "smashes", computer)
+            win+=1
+    elif player == "Paper":
+        if computer == "Scissors":
+            print("You lose!", computer, "cut", player)
+        else:
+            print("You win!", player, "covers", computer)
+    elif player == "Scissors":
+        if computer == "Rock":
+            print("You lose...", computer, "smashes", player)
+        else:
+            print("You win!", player, "cut", computer)
+    else:
+        print("That's not a valid play. Check your spelling!")
+    player = False
+    computer = t[random.randint(0,2)]
 
 
 
